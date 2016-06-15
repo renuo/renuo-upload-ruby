@@ -40,4 +40,4 @@ See the [CONTRIBUTING](CONTRIBUTING.md) file.
 
 ## Copyright
 
-Renuo GmbH (https://www.renuo.ch) - [MIT LICENSE](LICENCE) - 2016
+Renuo GmbH (https://www.renuo.ch) - [MIT LICENSE](LICENSE) - 2016
