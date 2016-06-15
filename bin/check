@@ -1,0 +1,53 @@
+#!/bin/zsh
+
+source ~/.zshrc
+
+grep -i -r 'TODO' lib spec Rakefile README.md Gemfile
+if [ $? -eq 0 ]; then
+  echo 'TODOs found. Please fix them and try again, bin/check aborted'
+  exit 1
+fi
+
+grep -i -r '  puts ' lib spec
+if [ $? -eq 0 ]; then
+  echo 'puts found. Please fix them and try again, bin/check aborted'
+  exit 1
+fi
+
+grep -i -r '  puts(' lib spec
+if [ $? -eq 0 ]; then
+  echo 'puts found. Please fix them and try again, bin/check aborted'
+  exit 1
+fi
+
+grep -i -r '  p ' lib spec
+if [ $? -eq 0 ]; then
+  echo 'p found. Please fix them and try again, bin/check aborted'
+  exit 1
+fi
+
+grep -i -r '  p(' lib spec
+if [ $? -eq 0 ]; then
+  echo 'p found. Please fix them and try again, bin/check aborted'
+  exit 1
+fi
+
+bundle exec rubocop -D -c .rubocop.yml --fail-fast
+if [ ! $? -eq 0 ]; then
+  echo 'rubocop detected issues!'
+  bundle exec rubocop -a -D -c .rubocop.yml
+  echo 'Tried to auto correct the issues, but must be reviewed manually, bin/check aborted'
+  exit 1
+fi
+
+bundle exec reek
+if [ ! $? -eq 0 ]; then
+  echo 'reek detected code smells, bin/check aborted'
+  exit 1
+fi
+
+bundle exec rspec
+if [ ! $? -eq 0 ]; then
+  echo 'rspec did not run successfully, bin/check aborted'
+  exit 1
+fi

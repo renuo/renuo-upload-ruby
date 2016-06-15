@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ['cyril.kyburz@renuo.ch', 'alessandro.rodi@renuo.ch']
 
   spec.summary = 'Ruby client for renuo upload'
-  spec.description = 'The renuo upload allows in compination with the renuo-upload service to easily upload files into S3.'
+  spec.description = 'The renuo upload allows in compination with the renuo upload service to easily upload files.'
   spec.homepage = 'https://github.com/renuo/renuo-upload-ruby'
   spec.license = 'MIT'
 

@@ -2,3 +2,5 @@
 .idea
 .ruby-version
 *.gem
+Gemfile.lock
+.bundle

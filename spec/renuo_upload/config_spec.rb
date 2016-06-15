@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe RenuoUpload do
-  let(:config) { config = RenuoUpload::Config.new }
+  let(:config) { RenuoUpload::Config.new }
 
   describe RenuoUpload::Config do
     [
@@ -34,7 +34,7 @@ RSpec.describe RenuoUpload do
         it "resets the #{method}" do
           ClimateControl.modify env_variable_name => default_value do
             RenuoUpload.configure { |config| config.send("#{method}=", new_value) }
-            expect { RenuoUpload.reset }.to change{ RenuoUpload.config.send(method) }.from(new_value).to(default_value)
+            expect { RenuoUpload.reset }.to change { RenuoUpload.config.send(method) }.from(new_value).to(default_value)
           end
         end
       end
