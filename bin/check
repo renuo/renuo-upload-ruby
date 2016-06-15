@@ -2,7 +2,7 @@
 
 source ~/.zshrc
 
-grep -i -r 'TODO' lib spec Rakefile README.md Gemfile
+grep -i -r 'TODO' lib spec README.md Gemfile
 if [ $? -eq 0 ]; then
   echo 'TODOs found. Please fix them and try again, bin/check aborted'
   exit 1
