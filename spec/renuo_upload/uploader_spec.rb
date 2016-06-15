@@ -20,26 +20,24 @@ RSpec.describe RenuoUpload do
 
   describe RenuoUpload::Uploader do
     let(:uploader) { described_class.new(config) }
-    let(:config) do
-      RenuoUpload.config.api_key = 'api-key'
-      RenuoUpload.config.signing_url = 'signing-url'
-      RenuoUpload.config
+    let(:config) { RenuoUpload.config }
+    let(:policy) { JSON.parse(load_file('policy.json').read) }
+
+    before do
+      config.api_key = 'api-key'
+      config.signing_url = 'signing-url'
+      stub_request(:post, config.signing_url).to_return(body: load_file('policy.json'))
     end
-    let(:policy) { load_file('policy.json') }
 
     describe '#new' do
-      let(:dummy_policy) { :dummy_policy }
-
       it 'can be initialized with the renuo upload config' do
-        expect_any_instance_of(described_class).to receive(:retrieve_policy).and_return(dummy_policy)
-        expect(uploader.instance_variable_get(:@policy)).to be dummy_policy
+        expect(uploader.instance_variable_get(:@policy)).to eq policy
         expect(uploader.instance_variable_get(:@config)).to be RenuoUpload.config
       end
     end
 
     describe '#retrieve_policy' do
       it 'requests the policy from the renuo upload service' do
-        stub_request(:post, config.signing_url).to_return(body: policy)
         expect(uploader.send(:retrieve_policy).values_at('url', 'data')).to_not include(nil)
       end
     end
