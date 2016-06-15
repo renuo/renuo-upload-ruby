@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '>= 0.40.0'
   spec.add_development_dependency 'reek', '>= 4.0.4'
   spec.add_development_dependency 'climate_control', '>= 0.0.3'
+  spec.add_development_dependency 'pry', '>= 0.10.3'
 end

@@ -30,9 +30,9 @@ Dir.chdir APP_ROOT do
     install_or_update_gem('filewatcher')
   end
 
-  # run 'Creating pre-commit hook link', '.git/hooks/pre-commit' do
-  #   system 'ln -s ../../bin/check .git/hooks/pre-commit'
-  # end
-  #
-  # run('Running checks') { abort('bin/check failed') unless system('bin/check') }
+  run 'Creating pre-commit hook link', '.git/hooks/pre-commit' do
+    system 'ln -s ../../bin/check .git/hooks/pre-commit'
+  end
+
+  run('Running checks') { abort('bin/check failed') unless system('bin/check') }
 end
