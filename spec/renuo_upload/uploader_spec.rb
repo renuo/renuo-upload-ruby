@@ -7,13 +7,13 @@ RSpec.describe RenuoUpload do
     File.new(File.expand_path("../../data/#{name}", __FILE__))
   end
 
-  describe '#upload!' do
-    let(:fake_uploader) { Struct.new(:upload!).new }
+  describe '#upload' do
+    let(:fake_uploader) { Struct.new(:upload).new }
     let(:file_url) { 'https://file.url' }
 
     it 'can upload a file' do
       expect(RenuoUpload::Uploader).to receive(:new).with(RenuoUpload.config).and_return(fake_uploader)
-      expect(fake_uploader).to receive(:upload!).with(file).and_return(file_url)
+      expect(fake_uploader).to receive(:upload).with(file).and_return(file_url)
       expect(described_class.upload!(file)).to eq file_url
     end
   end
@@ -36,9 +36,30 @@ RSpec.describe RenuoUpload do
       end
     end
 
+    describe '#upload' do
+      let(:file_url) { '//cdn.renuoapp.ch/o/application/1xyj/db9f/aac4/3a98/2d85/e016/aa7d/700f/7ed0/file.txt' }
+
+      it 'upload the file to the provided server by the policy' do
+        stub = stub_request(:post, policy['url']).with(headers: { 'Content-Length' => '1512' })
+
+        expect(uploader.upload(file)).to eq file_url
+
+        expect(stub).to have_been_requested
+      end
+    end
+
     describe '#retrieve_policy' do
       it 'requests the policy from the renuo upload service' do
         expect(uploader.send(:retrieve_policy).values_at('url', 'data')).to_not include(nil)
+      end
+    end
+
+    describe '#upload_hash' do
+      it 'removes underscores and replace them with dashes, just for the keys' do
+        expect(uploader).to receive(:upload_data).and_return('key_key_key' => 'value')
+        uploaded_hash = uploader.send(:upload_hash, 'dummy_file')
+        expect(uploaded_hash['key-key-key']).to eq 'value'
+        expect(uploaded_hash[:file]).to eq 'dummy_file'
       end
     end
   end
