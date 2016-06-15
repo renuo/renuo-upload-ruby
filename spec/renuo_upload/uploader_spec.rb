@@ -28,7 +28,11 @@ RSpec.describe RenuoUpload do
     let(:policy) { load_file('policy.json') }
 
     describe '#new' do
+      let(:dummy_policy) { :dummy_policy }
+
       it 'can be initialized with the renuo upload config' do
+        expect_any_instance_of(described_class).to receive(:retrieve_policy).and_return(dummy_policy)
+        expect(uploader.instance_variable_get(:@policy)).to be dummy_policy
         expect(uploader.instance_variable_get(:@config)).to be RenuoUpload.config
       end
     end
