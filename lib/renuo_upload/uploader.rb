@@ -7,5 +7,12 @@ module RenuoUpload
     def initialize(config)
       @config = config
     end
+
+    private
+
+    def retrieve_policy
+      response = RestClient.post @config.signing_url, api_key: @config.api_key
+      JSON.parse(response.body)
+    end
   end
 end

@@ -1,0 +1,16 @@
+{
+  "url": "https://bucket.s3.eu-central-1.amazonaws.com/",
+  "data": {
+    "key": "o/application/1xyj/db9f/aac4/3a98/2d85/e016/aa7d/700f/7ed0/${filename}",
+    "acl": "public-read",
+    "policy": "6vEpDAg21V0f6tI00RRgffblpKMNJRnJj856DgD1udZp93Oj7a2HehpUseUIf8VlXCoJrdtSSi/23oK0qLJOuMVGjgfONLZPX4PFv79ILwKmQViCG6FJZNw8Hj7NdGS9955kd+pB5Z75LiPG8dBBDl0ByOvPSdqjmoUNbZ7fsoFwwNBORl8P1G2bUspLPKfHNmfNKapScwoFuyEDH8h3j+emu2iiwQ+uPD/vr1nCofrtFbhYKcOyVlfTp3501UknokidZY7FlhqggJJG72eNLmJ5WEHec7FaqSE/AtpK07fSwCVkWOYO+Y4KryKg4IcwgT3kOVWDmgLk7dHsF4ySmTQvCkRbt9hI7oOv1pN0lm1qwxPQFLWXEk/2hBbd8j4abKP+za+1TjTuS6FN7i/m/TH26eKTLKInV+/4I0sBORHGOtRmelmo393ubSUHOpsntUeRm9/58gC2SLpQUiEE1nKpN0Qwz7ypfWg8Y4xHfs9WFzOXX09xpRPuGNsA+PergflqKxwkBt8oeFB/URmNBKdXO9R90ueirMuz5O8yFhuk==",
+    "x_amz_algorithm": "AWS4-HMAC-SHA256",
+    "x_amz_credential": "AKIAJP5UELFNK1QE4FAD/20160615/eu-central-1/s3/aws4_request",
+    "x_amz_expires": 28800,
+    "x_amz_signature": "04d5f8b52b6e0a7a83ffb77655ab10ab7377dd60ce949b50fce189a2d7078d90",
+    "x_amz_date": "20160615T123654Z",
+    "utf8": "✓"
+  },
+  "file_prefix": "1xyj/db9f/aac4/3a98/2d85/e016/aa7d/700f/7ed0/",
+  "file_url_path": "//cdn.renuoapp.ch/o/application/1xyj/db9f/aac4/3a98/2d85/e016/aa7d/700f/7ed0/"
+}
