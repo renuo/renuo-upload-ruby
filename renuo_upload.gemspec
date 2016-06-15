@@ -5,8 +5,8 @@ require 'renuo_upload/version'
 Gem::Specification.new do |spec|
   spec.name = 'renuo-upload'
   spec.version = RenuoUpload::VERSION
-  spec.authors = ['Cyril Kyburz', 'Alessandro Rodi']
-  spec.email = ['cyril.kyburz@renuo.ch', 'alessandro.rodi@renuo.ch']
+  spec.authors = ['Cyril Kyburz', 'Alessandro Rodi', 'Lukas Elmer']
+  spec.email = ['cyril.kyburz@renuo.ch', 'alessandro.rodi@renuo.ch', 'lukas.elmer@renuo.ch']
 
   spec.summary = 'Ruby client for renuo upload'
   spec.description = 'The renuo upload allows in compination with the renuo upload service to easily upload files.'
