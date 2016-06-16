@@ -18,7 +18,7 @@ gem 'renuo-upload'
 
 The configuration is optional. If you want to use it, add an initializer:
 
-```
+```ruby
 RenuoUpload.configure do |config|
   config.api_key = 'custom-api-key'             # Default: ENV['RENUO_UPLOAD_API_KEY']
   config.signing_url = 'custom-signing-url'     # Default: ENV['RENUO_UPLOAD_SIGNING_URL']
