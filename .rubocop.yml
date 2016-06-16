@@ -1,0 +1,23 @@
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/NonNilCheck:
+  IncludeSemanticChanges: true
+
+Style/FileName:
+  Exclude:
+  - 'Gemfile.local.rb'
+  - 'Gemfile.local.example.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/bundle/**/*'
+    - 'lib/renuo-upload.rb'
