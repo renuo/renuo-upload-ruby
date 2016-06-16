@@ -2,6 +2,8 @@
 
 # Renuo Upload
 
+Gem for Ruby 2.0+ applications that use the excellent Renuo Upload
+
 ## Installation
 
 Add this line to your application's Gemfile and run bundle:
@@ -37,6 +39,22 @@ file_url = RenuoUpload.upload!(file)
 ### Contributing
 
 See the [CONTRIBUTING](CONTRIBUTING.md) file.
+
+### Release
+
+```sh
+git flow release start [.....]
+# adjust version.rb
+# check (and adjust) CHANGELOG.md
+bundle install
+git commit -av
+git flow release finish [.....]
+git push origin develop:develop
+git push origin master:master
+git checkout master
+bundle exec rake release
+git checkout develop
+```
 
 ## Copyright
 
