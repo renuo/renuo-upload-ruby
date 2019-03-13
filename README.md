@@ -58,4 +58,4 @@ git checkout develop
 
 ## Copyright
 
-Renuo AG (https://www.renuo.ch) - [MIT LICENSE](LICENSE) - 2016
+[Renuo AG](https://www.renuo.ch) - [MIT LICENSE](LICENSE) - 2019
